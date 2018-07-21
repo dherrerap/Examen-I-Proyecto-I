@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrenadores</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<header>
+
+</header>
+<body>
+    <main>
+        <!-- Menú -->
+        <div class="menuGeneral">
+            <a href="#.html" class="w3-bar-item w3-button"><img src="img/logo-pokemon-79x45.png" alt="logo pokemon"></a>
+            <a href="entrenadores.html" class="w3-bar-item w3-button" id="menuEntrenadores">Entrenadores</a>
+            <a href="pokedex.html" class="w3-bar-item w3-button" id="menuPokedex">Pokedex</a>
+            <a href="cath.html" class="w3-bar-item w3-button" id="menuAtrapar">Cath'em all!</a>
+        </div>
+
+        <section id="registroEntrenador">
+            <fieldset>
+                <h2>Registro de Entrenador</h2>
+
+                <img src="" alt="Foto" id="txtImagen">
+
+                <label for="txtNumero">Número de entrenador</label>
+                <input type="text" id="txtNumero" disabled> 
+
+                <label for="txtNombre">Nombre de entrenador</label>
+                <input type="text" id="txtNombre" autocomplete="off">
+
+                <label for="txtEdad">Edad</label>
+                <input type="text" id="txtEdad"> 
+
+                <label for="txtSexo">Sexo</label>
+                <select id="txtSexo">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otro">Otro</option>
+                </select>
+
+                <button type="button" id="btnSeleccionarImagen">Subir foto</button>
+                <button type="button" id="btnRegistrar">Registrar</button>
+            </fieldset>
+        </section>
+
+        <section id="listarEntrenadores">
+            <label for="txtBuscar">Filtrar</label>
+            <input type="text" id="txBuscar">  
+
+            <table id="tblBusqueda" class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-centered">
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Sexo</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Sweetalerts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+    <!-- Jquery -->
+    <script src="js/jquery-3.3.1.js"></script>
+    <!-- Inicio: Scripts de cloudinary -->
+    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
+    <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <!-- Fin: Scripts de cloudinary -->
+    <script src="js/servicioImagen.js"></script>
+    <script src="js/entrenadores/servicioEntrenadores.js"></script>
+    <script src="js/entrenadores/controladoreEntrenadores.js"></script>
+</body>
+</html>
