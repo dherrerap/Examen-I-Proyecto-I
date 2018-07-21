@@ -7,6 +7,8 @@ module.exports.registrar = function(req, res) {
         numeroEntrenador : req.body.numeroEntrenador,
         nombreEntrenador : req.body.nombreEntrenador,
 =======
+        numeroEntrenador : req.body.numero,
+        nombreEntrenador : req.body.nombre,
 >>>>>>> 5fbd0d80e840a0e76096b583838b3bc9e3548d64
         edad : req.body.edad,
         sexo : req.body.sexo,
