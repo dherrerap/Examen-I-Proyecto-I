@@ -3,8 +3,11 @@ const entrenadorModel = require('./entrenador.model');
 
 module.exports.registrar = function(req, res) {
     let nuevoEntrenador = new entrenadorModel({
+<<<<<<< HEAD
         numeroEntrenador : req.body.numeroEntrenador,
         nombreEntrenador : req.body.nombreEntrenador,
+=======
+>>>>>>> 5fbd0d80e840a0e76096b583838b3bc9e3548d64
         edad : req.body.edad,
         sexo : req.body.sexo,
         foto : req.body.foto
@@ -35,8 +38,12 @@ module.exports.agregar_pokemon = function(req, res){
             {'pokemon':
                 {
                     numeroPokemon : req.body.numero, 
+<<<<<<< HEAD
                     nombrePokemon : req.body.nombre,
                     apodoPokemon : req.body.apodo
+=======
+                    nombrePokemon : req.body.nombre
+>>>>>>> 5fbd0d80e840a0e76096b583838b3bc9e3548d64
                 }
             }
         },

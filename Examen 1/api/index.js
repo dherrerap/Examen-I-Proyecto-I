@@ -64,14 +64,20 @@ app.use( function(req, res, next) {
  */
 const entrenadores = require('./components/entrenadores/entrenador.route.js');
 const pokemones = require('./components/pokemones/pokemon.route.js');
+<<<<<<< HEAD
 const atributos = require('./components/atributos/atributo.route.js');
+=======
+>>>>>>> 5fbd0d80e840a0e76096b583838b3bc9e3548d64
 
 /**
  * Le indicamos que le de acceso externo a las rutas inicializadas
  */
 app.use('/api', entrenadores);
 app.use('/api', pokemones);
+<<<<<<< HEAD
 app.use('/api', atributos);
+=======
+>>>>>>> 5fbd0d80e840a0e76096b583838b3bc9e3548d64
 
 // Se guarda todo lo que se ha realizado
 module.exports = app;
