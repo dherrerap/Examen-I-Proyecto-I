@@ -17,6 +17,9 @@ inputBuscar.addEventListener('keyup', function(){
     listarEntrenadores(inputBuscar.value)
 });
 
+let regexNumero = /^[0-9]+$/;
+let regexNombre = /^[a-zA-ZÑñáéíóúÁÉÍÓÚ0-9 ]+$/;
+
 function siguienteNumero(){
     if(sListaEntrenadores.length == 0){
         return 1;
@@ -31,26 +34,40 @@ function registrar(){
     let sNombre = inputNombre.value;
     let nEdad = inputEdad.value;
     let sSexo = selectSexo.value;
+    let bError = false;
 
-    let respuesta = registrarEntrenador(nNumero, sNombre, nEdad, sSexo, imagenUrl);
-    if(respuesta.success == true){
-        swal({
-            title: 'Registro correcto',
-            text: respuesta.msg,
-            type: 'success',
-            confirmButtonText: 'Entendido'
-        });
-        sListaEntrenadores = obtenerEntrenadores();
-        listarEntrenadores();
-        inputNumero.value = siguienteNumero();
+    bError = validarRegistro();
+    if (!bError) {
+        if(document.getElementById('txtImagen').src == 'https://res.cloudinary.com/dherrerap/image/upload/v1532225446/trainer.jpg'){
+            imagenUrl = 'https://res.cloudinary.com/dherrerap/image/upload/v1532225446/trainer.jpg';
+        }
+        let respuesta = registrarEntrenador(nNumero, sNombre, nEdad, sSexo, imagenUrl);
+        if(respuesta.success == true){
+            swal({
+                title: 'Registro correcto',
+                text: respuesta.msg,
+                type: 'success',
+                confirmButtonText: 'Entendido'
+            });
+            sListaEntrenadores = obtenerEntrenadores();
+            listarEntrenadores();
+            inputNumero.value = siguienteNumero();
+        }else{
+            swal({
+                title: 'Registro incorrecto',
+                text: respuesta.msg,
+                type: 'error',
+                confirmButtonText: 'Entendido'
+                });
+        }  
     }else{
         swal({
             title: 'Registro incorrecto',
-            text: respuesta.msg,
-            type: 'error',
+            text: 'No se pudo registrar el entrenador, revise los campos en rojo',
+            type: 'warning',
             confirmButtonText: 'Entendido'
-            });
-    }   
+        });
+    }
 };
 
 function listarEntrenadores(pFiltro){
@@ -63,16 +80,58 @@ function listarEntrenadores(pFiltro){
     for(let i = 0; i < sListaEntrenadores.length; i++){
         if( (sListaEntrenadores[i]['numeroEntrenador'] == pFiltro) || (sListaEntrenadores[i]['nombreEntrenador'].toLowerCase()).includes(pFiltro.toLowerCase()) ){
             let fila = tbody.insertRow();
+            fila.id = sListaEntrenadores[i]['nombreEntrenador'];
 
             let celdaNumero = fila.insertCell();
             let celdaNombre = fila.insertCell();
+            let celdaFoto = fila.insertCell();
             let celdaEdad = fila.insertCell();
             let celdaSexo = fila.insertCell();
+            let celdaCatch = fila.insertCell();
+
+            if(sListaEntrenadores[i]['foto'] == ''){
+                celdaFoto.innerHTML = 'No posee'
+            }
+            else {
+                let imagen = document.createElement('img');
+                imagen.src = sListaEntrenadores[i]['foto'];
+                imagen.classList.add('imageSettings');
+            }
 
             celdaNumero.innerHTML = sListaEntrenadores[i]['numeroEntrenador'];
             celdaNombre.innerHTML = sListaEntrenadores[i]['nombreEntrenador'];
             celdaEdad.innerHTML = sListaEntrenadores[i]['edad'];
             celdaSexo.innerHTML = sListaEntrenadores[i]['sexo'];
+
+            let btnCatch = document.createElement('a');
+            btnCatch.href = 'cath.html';
+            btnCatch.addEventListener('click', ( localStorage.setItem('idEntrenador', sListaEntrenadores[i]['_id']), localStorage.setItem('entrenadorActivo',          sListaEntrenadores[i]['nombreEntrenador'])) );
+            btnCatch.classList.add('fas');
+            btnCatch.classList.add('fa-link');
+            celdaCatch.appendChild(btnCatch);
         }
     }
+};
+
+function validarRegistro(){
+    let bError = false;
+    let sNombre = inputNombre.value;
+    let nEdad = Number(inputEdad.value);
+
+    // Validación nombre
+    if (sNombre == '' || (regexNombre.test(sNombre) == false) ){
+        inputNombre.classList.add('errorInput');
+        bError = true;
+    }else{
+        inputNombre.classList.remove('errorInput');
+    }
+
+    //Validación edad
+    if(nEdad == 0 || (regexNumero.test(nEdad) == false) || nEdad < 15 || nEdad > 80){
+        inputEdad.classList.add('errorInput');
+        bError = true;
+    }else{
+        inputEdad.classList.remove('errorInput');
+    }
+    return bError;
 };

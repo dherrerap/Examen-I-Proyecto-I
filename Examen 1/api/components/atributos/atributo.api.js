@@ -4,7 +4,7 @@ const atributoModel = require('./atributo.model');
 module.exports.registrar = function(req, res) {
     let nuevoAtributo = new atributoModel({
         nombre : req.body.nombre,
-        fondo : req.body.fondo
+        foto : req.body.foto
     });
 
     nuevoAtributo.save(function(error){

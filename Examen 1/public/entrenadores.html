@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
 </head>
 <header>
 
@@ -14,50 +16,63 @@
     <main>
         <!-- Menú -->
         <div class="menuGeneral">
-            <a href="#.html" class="w3-bar-item w3-button"><img src="img/logo-pokemon-79x45.png" alt="logo pokemon"></a>
-            <a href="entrenadores.html" class="w3-bar-item w3-button" id="menuEntrenadores">Entrenadores</a>
-            <a href="pokedex.html" class="w3-bar-item w3-button" id="menuPokedex">Pokedex</a>
-            <a href="cath.html" class="w3-bar-item w3-button" id="menuAtrapar">Cath'em all!</a>
+            <a href="index.html" class="w3-bar-item w3-button w3-hover-orange"><img src="img/logo-pokemon-79x45.png" alt="logo pokemon"></a>
+            <a href="entrenadores.html" class="w3-bar-item w3-button w3-hover-orange" id="menuEntrenadores">Entrenadores</a>
+            <a href="pokedex.html" class="w3-bar-item w3-button w3-hover-orange" id="menuPokedex">Pokedex</a>
         </div>
 
-        <section id="registroEntrenador">
+        <section id="registro">
             <fieldset>
                 <h2>Registro de Entrenador</h2>
 
-                <img src="" alt="Foto" id="txtImagen">
+                <div class="float_left">
+                    <img src="https://res.cloudinary.com/dherrerap/image/upload/v1532225446/trainer.jpg" alt="Foto" id="txtImagen" width="226px" height="207px">
+                </div>
 
-                <label for="txtNumero">Número de entrenador</label>
-                <input type="text" id="txtNumero" disabled> 
+                <div class="float_right">
+                    <div>
+                        <label for="txtNumero">N° de entrenador</label>
+                        <input type="number" id="txtNumero" disabled> 
+        
+                        <label for="txtNombre">Nombre de entrenador</label>
+                        <input type="text" id="txtNombre" autocomplete="off">
+                    </div>
+    
+                    <div>
+                        <label for="txtEdad">Edad</label>
+                        <input type="number" id="txtEdad"> 
+        
+                        <label for="txtSexo">Sexo</label>
+                        <select id="txtSexo">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
 
-                <label for="txtNombre">Nombre de entrenador</label>
-                <input type="text" id="txtNombre" autocomplete="off">
-
-                <label for="txtEdad">Edad</label>
-                <input type="text" id="txtEdad"> 
-
-                <label for="txtSexo">Sexo</label>
-                <select id="txtSexo">
-                    <option value="Masculino">Masculino</option>
-                    <option value="Femenino">Femenino</option>
-                    <option value="Otro">Otro</option>
-                </select>
-
-                <button type="button" id="btnSeleccionarImagen">Subir foto</button>
-                <button type="button" id="btnRegistrar">Registrar</button>
+                    <div>
+                        <button type="button" id="btnSeleccionarImagen">Subir foto</button>
+                        <button type="button" id="btnRegistrar">Registrar</button>
+                    </div>
+                </div>
             </fieldset>
         </section>
 
-        <section id="listarEntrenadores">
-            <label for="txtBuscar">Filtrar</label>
-            <input type="text" id="txBuscar">  
+        <section id="listar">
+            <div id="filtrar">
+                <label for="txtBuscar">Filtrar</label>
+                <input type="text" id="txBuscar"> 
+            </div> 
 
             <table id="tblBusqueda" class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-centered">
                 <thead>
                     <tr>
-                        <th>Número</th>
+                        <th>N° Entrenador</th>
                         <th>Nombre</th>
+                        <th>Foto</th>
                         <th>Edad</th>
                         <th>Sexo</th>
+                        <th>Catch</th>
                     </tr>
                 </thead>
                 <tbody>

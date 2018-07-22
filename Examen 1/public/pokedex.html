@@ -14,42 +14,55 @@
     <main>
         <!-- Menú -->
         <div class="menuGeneral">
-            <a href="#.html" class="w3-bar-item w3-button"><img src="img/logo-pokemon-79x45.png" alt="logo pokemon"></a>
-            <a href="entrenadores.html" class="w3-bar-item w3-button" id="menuEntrenadores">Entrenadores</a>
-            <a href="pokedex.html" class="w3-bar-item w3-button" id="menuPokedex">Pokedex</a>
-            <a href="cath.html" class="w3-bar-item w3-button" id="menuAtrapar">Cath'em all!</a>
+            <a href="index.html" class="w3-bar-item w3-button w3-hover-orange"><img src="img/logo-pokemon-79x45.png" alt="logo pokemon"></a>
+            <a href="entrenadores.html" class="w3-bar-item w3-button w3-hover-orange" id="menuEntrenadores">Entrenadores</a>
+            <a href="pokedex.html" class="w3-bar-item w3-button w3-hover-orange" id="menuPokedex">Pokedex</a>
         </div>
 
-        <section id="registroPokemon">
+        <section id="registro">
             <fieldset>
                 <h2>Registro de Pokémon</h2>
 
-                <img src="" alt="Foto" id="txtImagen">
+                <div class="float_left">
+                    <img src="https://res.cloudinary.com/dherrerap/image/upload/v1532224627/unknow.jpg" alt="Foto" id="txtImagen">
+                </div>
 
-                <label for="txtNumero">Número en la pokedex</label>
-                <input type="text" id="txtNumero" disabled> 
+                <div class="float_right">
+                    <div>
+                        <label for="txtNumero">Número en la pokedex</label>
+                        <input type="text" id="txtNumero" disabled> 
+        
+                        <label for="txtNombre">Nombre</label>
+                        <input type="text" id="txtNombre" autocomplete="off">
+                    </div>
+    
+                    <div>
+                        <label for="atributoPrincipal">Atributo principal</label>
+                        <select id="atributoPrincipal">
+        
+                        </select>
+        
+                        <label for="atributoSecundario">Atributo secundario</label>
+                        <select id="atributoSecundario">
+                    </div>
+                    </select>
+                </div>
 
-                <label for="txtNombre">Nombre</label>
-                <input type="text" id="txtNombre" autocomplete="off">
-
-                <label for="atributoPrincipal">Atributo principal</label>
-                <select id="atributoPrincipal">
-
-                </select>
-
-                <label for="atributoSecundario">Atributo secundario</label>
-                <select id="atributoSecundario">
-
-                </select>
-
-                <button type="button" id="btnSeleccionarImagen">Subir foto</button>
-                <button type="button" id="btnRegistrar">Registrar</button>
+                <div>
+                    <button type="button" id="btnSeleccionarImagen">Subir foto</button>
+                    <button type="button" id="btnRegistrar">Registrar</button>
+                </div>
             </fieldset>
         </section>
 
-        <section id="listarPokemon">
-            <label for="txtFiltrar">Filtrar</label>
-            <input type="text" id="txFiltrar">
+        <section id="listar">
+            <div id="filtrar">
+                <label for="txtBuscar">Filtrar</label>
+                <input type="text" id="txBuscar">
+            </div>
+            <div id="listaPokemon">
+
+            </div>
         </section>
     </main>
 

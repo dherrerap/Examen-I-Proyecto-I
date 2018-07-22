@@ -1,37 +1,53 @@
 'use strict';
 
 let sPokemon = obtenerPokemones();
+let btnEntrenadores = document.querySelector('#menuEntrenadores');
+let btnPokedex = document.querySelector('#menuPokedex');
+
+let boton = document.querySelector('#boton');
+let img = document.querySelector('#pokemonSalvaje');
+
+btnEntrenadores.addEventListener('click', limpiarLocalStorage);
+btnPokedex.addEventListener('click', limpiarLocalStorage);
+
+let i = 0;
+img.addEventListener('click', function(){
+    atrapar(i)
+});
 
 window.setInterval(generarPokemon, 3000);
 
 function generarPokemon() {
-    document.querySelectorAll('button').removeChild;
-    let i = Math.floor(Math.random() * sPokemon.length);
-    console.log(i);
-    
-    let a = document.createElement('div');
-    let b = document.createElement('button');
-    b.classList.add('btn');
-    let img = document.createElement('img');
+    i = Math.floor(Math.random() * sPokemon.length);
+
     img.src = sPokemon[i]['foto'];
     
-    a.style.position = 'absolute';
+    img.style.position = 'absolute';
     
-    // Stick on the left
-    a.style.left = Math.round(Math.random() * (screen.width - 300)) + 'px';
-    a.style.top = ( Math.round(Math.random() * (screen.height - 300)) + 50) + 'px';
-    
-    // Stick on the right
+    img.style.left = Math.round(Math.random() * (screen.width - 300)) + 'px';
+    img.style.top = ( Math.round(Math.random() * (screen.height - 300)) + 50) + 'px';
+
     // a.style.right = '0';
     // a.style.top = Math.round(Math.random() * document.body.scrollHeight) + 'px';
-    
-    b.appendChild(img);
-    a.appendChild(b);
-    a.addEventListener('onClick', atrapar(i));
-    document.body.appendChild(a);
+    // b.appendChild(img);
 }
 
 function atrapar(pNumero){
-    console.log(pNumero);
-    console.log(sPokemon[pNumero]['nombrePokemon']);
-}
+    let id = localStorage.getItem('idEntrenador');
+    let sNombreEntrenador = localStorage.getItem('entrenadorActivo');
+    let nNumeroPokemon = sPokemon[pNumero]['numeroPokemon'];
+    let sNombrePokemon = sPokemon[pNumero]['nombrePokemon'];
+
+    agregarPokemon(id, nNumeroPokemon, sNombrePokemon);
+    swal({
+        title: 'Felicidades '+sNombreEntrenador+'!',
+        text: 'Has atrapado un '+ sPokemon[pNumero]['nombrePokemon'],
+        type: 'success',
+        confirmButtonText: 'Entendido'
+    });
+};
+
+function limpiarLocalStorage(){
+    localStorage.removeItem('entrenadorActivo');
+    localStorage.removeItem('idEntrenador');
+};

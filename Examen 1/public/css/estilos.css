@@ -4,7 +4,7 @@ html{
 
 /* Inicio estilos de menú de navegación */
 div.menuGeneral {
-    background-color: #333;
+    background-color: #fe9126;
     text-align: center;
     margin-bottom: 20px;
     width: 100%;
@@ -19,7 +19,7 @@ div.menuGeneral a {
     width: 20%;
 }
 div.menuGeneral div {
-    background-color: #333;
+    background-color: #fe9126;
     color: white;
     text-align: center;
     padding: 0px 14px;
@@ -37,28 +37,82 @@ div.menuGeneral .opcionMenu {
     color: white;
     padding: 0px 14px;
 }
-
-div.menuGeneral a:hover {
-    background-color: #777;
-}
 /* Fin estilos menú de navegación*/
 
-.error_input{
-    border: 2px solid #d63031;
+/* Inicio estilos Registrar */
+main #registro {
+    background-color: rgba(119, 119, 119, 0.122);
+    text-align: center;
+    width: 80%;
+    margin: 0 10%;
+    margin-bottom: 40px;
 }
+main #registro h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+main #registro fieldset{
+    border: 0;
+}
+#registro .float_left{
+    width: 30%; 
+    float: left;
+}
+#registro .float_right{
+    width: 70%; 
+    float: left;
+}
+#registro .float_right div{
+    width: 100%;
+    margin-bottom: 50px;
+}
+#registro .float_right div input, #registro .float_right div select, #registro .float_right div button{
+    margin-right: 5%;
+}
+/* Fin estilos registrar */
+
+/* Inicio estilos Listar */
+main #listar {
+    background-color: rgba(119, 119, 119, 0.122);
+    text-align: center;
+    width: 80%;
+    margin: 0 10%;
+    margin-bottom: 40px;
+}
+main #listar h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+main #listar #filtrar{
+    margin-left: 5%;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    text-align: left;
+}
+/* Fin estilos Listar */
 
 /* Inicio estilos tablas */
 .imageSettings{
     width: 150px;
     height: 150px;
 }
+
+.imgAtributo{
+    width: 50px;
+    height: 20px;
+    color: #3d9854;
+}
 .tabla{
     display: inline-block;
     width: 150px;
     margin-left: 5%;
     padding: opx 5px;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.32);
     text-align: center;
+    margin-bottom: 30px;
+}
+.tabla:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 .td{
     width: 100%;
@@ -70,4 +124,8 @@ div.menuGeneral a:hover {
     border: none;
     cursor: pointer;
     text-align: center;
+}
+
+.errorInput{
+    border: 2px solid #d63031;
 }

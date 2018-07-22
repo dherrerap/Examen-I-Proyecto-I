@@ -13,4 +13,8 @@ router.route('/listar_entrenadores')
         entrenadorApi.listar_todos(req, res);
     });
 
+router.route('/agregar_pokemon')
+    .post(function(req, res){
+        entrenadorApi.agregar_pokemon(req, res);
+});
 module.exports = router;

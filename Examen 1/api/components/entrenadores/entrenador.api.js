@@ -3,13 +3,8 @@ const entrenadorModel = require('./entrenador.model');
 
 module.exports.registrar = function(req, res) {
     let nuevoEntrenador = new entrenadorModel({
-<<<<<<< HEAD
         numeroEntrenador : req.body.numeroEntrenador,
         nombreEntrenador : req.body.nombreEntrenador,
-=======
-        numeroEntrenador : req.body.numero,
-        nombreEntrenador : req.body.nombre,
->>>>>>> 5fbd0d80e840a0e76096b583838b3bc9e3548d64
         edad : req.body.edad,
         sexo : req.body.sexo,
         foto : req.body.foto
@@ -25,7 +20,7 @@ module.exports.registrar = function(req, res) {
 };
 
 module.exports.listar_todos = function(req, res){
-    entrenadorModel.find().sort({nombre : 'asc'}).then(
+    entrenadorModel.find().sort({numeroEntrenador : 'asc'}).then(
         function(entrenadores){
             res.send(entrenadores);
         }
@@ -40,12 +35,7 @@ module.exports.agregar_pokemon = function(req, res){
             {'pokemon':
                 {
                     numeroPokemon : req.body.numero, 
-<<<<<<< HEAD
-                    nombrePokemon : req.body.nombre,
-                    apodoPokemon : req.body.apodo
-=======
                     nombrePokemon : req.body.nombre
->>>>>>> 5fbd0d80e840a0e76096b583838b3bc9e3548d64
                 }
             }
         },
