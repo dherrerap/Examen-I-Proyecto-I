@@ -12,6 +12,7 @@ const inputNombre = document.querySelector('#txtNombre');
 const selectAtributoPrincipal = document.querySelector('#atributoPrincipal');
 const selectAtributoSecundario = document.querySelector('#atributoSecundario');
 const btnFoto = document.querySelector('#btnSeleccionarImagen');
+const btnGif = document.querySelector('#btnSeleccionarGif');
 const btnRegistrar = document.querySelector('#btnRegistrar');
 const inputBuscar = document.querySelector('#txBuscar');
 
@@ -87,7 +88,7 @@ function registrar(){
     bError = validarRegistro();
 
     if (!bError) {
-        let respuesta = registrarPokemon(nNumero, sNombre, sAtributoPrincipal, sAtributoSecundario, imagenUrl);
+        let respuesta = registrarPokemon(nNumero, sNombre, sAtributoPrincipal, sAtributoSecundario, imagenUrl, gifUrl);
         if(respuesta.success == true){
             swal({
                 title: 'Registro correcto',
@@ -117,75 +118,52 @@ function registrar(){
 };
 
 function listarPokemon(pFiltro) {
+    let tbody = document.getElementById('grid');
+    if(!pFiltro){
+        pFiltro = '';
+    }
+    tbody.innerHTML = '';
 
     for(let i = 0; i < sListaPokemon.length; i++){
-        // if( (sListaPokemon[i]['nombrePokemon'] == pFiltro) || (sListaPokemon[i]['atributoPrincipal'].toLowerCase()).includes(pFiltro.toLowerCase()) || (sListaPokemon[i]['atributoSecundario'].toLowerCase()).includes(pFiltro.toLowerCase()) ){
-            let nombreTabla = 'tbl'+sListaPokemon[i]['nombrePokemon'];
-            var x = document.createElement('table');
-            x.setAttribute("id", nombreTabla);
-            x.classList.add('tabla');
-            document.getElementById('listar').appendChild(x);
+        if((sListaPokemon[i]['nombrePokemon'].toLowerCase()).includes(pFiltro.toLowerCase()) || (sListaPokemon[i]['atributoPrincipal'].toLowerCase()).includes(pFiltro.toLowerCase()) || (sListaPokemon[i]['atributoSecundario'].toLowerCase()).includes(pFiltro.toLowerCase())){
+            let nuevoGrid = sListaPokemon[i]['nombrePokemon'];
+            let x = document.createElement('div');
+            x.setAttribute("id", nuevoGrid);
+            x.classList.add('card');
 
-            var p = document.createElement('tbody');
-            document.getElementById(nombreTabla).appendChild(p);
-
-            let tbody = document.querySelector('#'+nombreTabla, 'tbody');
-
-            if(!pFiltro){
-                pFiltro = '';
-            }
-
-            tbody.innerHTML = '';
-
-            if( (sListaPokemon[i]['nombrePokemon'].toLowerCase()).includes(pFiltro.toLowerCase()) ){
-            let filaFoto = tbody.insertRow();
-            let cFoto = filaFoto.insertCell();
             let imagen = document.createElement('img');
             imagen.src = sListaPokemon[i]['foto'];
             imagen.classList.add('imageSettings');
-            cFoto.appendChild(imagen);
+            x.appendChild(imagen);
 
-            let filaNumero = tbody.insertRow();
-            let celdaCodigo = filaNumero.insertCell();
-            celdaCodigo.innerHTML = 'N°.'+sListaPokemon[i]['numeroPokemon'];
+            let numero = document.createElement('h5');             
+            let textoNumero = document.createTextNode('N°.'+sListaPokemon[i]['numeroPokemon']);    
+            numero.appendChild(textoNumero);   
+            x.appendChild(numero);
 
-            let filaNombre = tbody.insertRow();
-            let celdaNombre = filaNombre.insertCell();
-            celdaNombre.innerHTML = sListaPokemon[i]['nombrePokemon'];
+            let nombre = document.createElement('h4');             
+            let textoNombre = document.createTextNode(sListaPokemon[i]['nombrePokemon']);    
+            nombre.appendChild(textoNombre);   
+            x.appendChild(nombre);
 
-            let filaAtributoP = tbody.insertRow();
-            let celdaAtributoP = filaAtributoP.insertCell();
-            let iAtributoP = document.createElement('img');
-            for(let j=0; j < sListaAtributos.length;j++){
-                if(sListaPokemon[i]['atributoPrincipal'] == sListaAtributos[j]['nombre']){
-                    iAtributoP.src = sListaAtributos[j]['foto'];
-                    iAtributoP.classList.add('imgAtributo');
+            let atributoP = document.createElement('img');
+                for(let j=0; j < sListaAtributos.length;j++){
+                    if(sListaPokemon[i]['atributoPrincipal'] == sListaAtributos[j]['nombre']){
+                        atributoP.src = sListaAtributos[j]['foto'];
+                        atributoP.classList.add('imgAtributo');
+                    }
                 }
-            }
+            x.appendChild(atributoP);
 
-            celdaAtributoP.appendChild(iAtributoP);
-            // let filaAtributoP = tbody.insertRow();
-            // let celdaAtributoP = filaAtributoP.insertCell();
-            // celdaAtributoP.innerHTML = sListaPokemon[i]['atributoPrincipal'];
-            
-            let filaAtributoS = tbody.insertRow();
-            let celdaAtributoS = filaAtributoS.insertCell();
-            let iAtributoS = document.createElement('img');
-            for(let j=0; j < sListaAtributos.length;j++){
-                if(sListaPokemon[i]['atributoSecundario'] == sListaAtributos[j]['nombre']){
-                    iAtributoS.src = sListaAtributos[j]['foto'];
-                    iAtributoS.classList.add('imgAtributo');
+            let atributoS = document.createElement('img');
+                for(let j=0; j < sListaAtributos.length;j++){
+                    if(sListaPokemon[i]['atributoSecundario'] == sListaAtributos[j]['nombre']){
+                        atributoS.src = sListaAtributos[j]['foto'];
+                        atributoS.classList.add('imgAtributo');
+                    }
                 }
-            }
-
-            celdaAtributoS.appendChild(iAtributoS);
-            // let filaAtributoS = tbody.insertRow();
-            // let celdaAtributoS = filaAtributoS.insertCell();
-            // if(sListaPokemon[i]['atributoSecundario'] != ''){
-            //     celdaAtributoS.innerHTML = sListaPokemon[i]['atributoSecundario'];
-            // }else{
-            //     celdaAtributoS.innerHTML = '-';
-            // }
+            x.appendChild(atributoS);
+            document.getElementById('grid').appendChild(x);
         }
     }
 };

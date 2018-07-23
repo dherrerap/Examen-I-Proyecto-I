@@ -1,0 +1,88 @@
+h3{
+    font-size: 30px;
+    font-weight: 700px;
+    color: #212;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-gap: 15px; */
+}
+
+.titulo{
+    grid-column-end: span 2;
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+    color: #fe9126;
+    padding: 32px 0px;
+}
+
+.nav {
+    grid-column-end: span 2;
+    background-color: #fe9126;
+    color: #fff;
+    padding: 20px 0px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.nav a{
+    font-size: 16px;
+    font-weight: 500px;
+    color: #fff;
+    width: 33%;
+    margin-left: 10%;
+}
+
+.imagen{
+    grid-column-end: span 2;
+}
+
+.descripcion{
+    grid-column-end: span 2;
+    padding: 80px 50px;
+}
+
+.funciones{
+    grid-column-end: span 2;
+    padding: 80px 50px;
+}
+
+/* Inicio estilos Galería */
+.galeria{
+    grid-column-end: span 2;
+    background-color: #eed3b6;
+    padding: 80px 0px;
+}
+.gridGaleria{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    margin: 0 5%;
+    padding: 60px 0px;
+}
+.card{
+    width: 100%;
+    height: 400px;
+    padding-bottom: 15px;
+    background-image: url(/public/img/catch.PNG);
+    background-size: 100% 100%;
+}
+.card:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+/* Fin estilos galería */
+
+/* Inicio estilos Footer */
+body footer{
+    background-color: #333;
+    text-align: center;
+    width: 100%;
+    height: 20px;
+    padding: 60px 50px;
+    color: #999;
+    font-size: 16px;
+}
+/* Fin estilos Footer */

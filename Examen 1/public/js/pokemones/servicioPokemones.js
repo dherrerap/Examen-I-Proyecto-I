@@ -1,6 +1,6 @@
 'use strict';
 
-function registrarPokemon(pNumero, pNombre, pAtributoPrincipal, pAtributoSecundario, pFoto){
+function registrarPokemon(pNumero, pNombre, pAtributoPrincipal, pAtributoSecundario, pFoto, pGif){
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/registrar_pokemon',
@@ -13,7 +13,8 @@ function registrarPokemon(pNumero, pNombre, pAtributoPrincipal, pAtributoSecunda
             nombrePokemon: pNombre,
             atributoPrincipal: pAtributoPrincipal,
             atributoSecundario: pAtributoSecundario,
-            foto: pFoto
+            foto: pFoto,
+            gif: pGif
         }
     });
     

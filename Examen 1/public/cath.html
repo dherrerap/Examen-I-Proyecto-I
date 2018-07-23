@@ -14,21 +14,28 @@
     <main>
         <!-- Menú -->
         <div class="menuGeneral">
-            <a href="#.html" class="w3-bar-item w3-button"><img src="img/logo-pokemon-79x45.png" alt="logo pokemon"></a>
-            <a href="entrenadores.html" class="w3-bar-item w3-button" id="menuEntrenadores">Entrenadores</a>
-            <a href="pokedex.html" class="w3-bar-item w3-button" id="menuPokedex">Pokedex</a>
+            <a href="index.html" class="w3-bar-item w3-button w3-hover-orange"><img src="img/logo-pokemon-79x45.png" alt="logo pokemon"></a>
+            <a href="entrenadores.html" class="w3-bar-item w3-button w3-hover-orange" id="menuEntrenadores">Entrenadores</a>
+            <a href="pokedex.html" class="w3-bar-item w3-button w3-hover-orange" id="menuPokedex">Pokedex</a>
         </div>
 
-        <img src="" alt="pokemonSalvaje" id="pokemonSalvaje" class="btn">
+        <div class="campoBatalla">
+            <!-- <label for="txtEntrenador">Seleccione un entrenador:</label>
+            <select id="txtEntrenador"> -->
+    
+            </select>
+    
+            <img src="" alt="pokemonSalvaje" id="pokemonSalvaje" class="btn">
+        </div>
     </main>
 
+    <script src="js/pokemones/servicioPokemones.js"></script>
+    <script src="js/entrenadores/servicioEntrenadores.js"></script>
     <!-- Sweetalerts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
     <!-- Jquery -->
     <script src="js/jquery-3.3.1.js"></script>
     <!-- Fin: Scripts de cloudinary -->
-    <script src="js/pokemones/servicioPokemones.js"></script>
-    <script src="js/entrenadores/servicioEntrenadores.js"></script>
     <script src="js/catch/controladorCatch.js"></script>
 </body>
 </html>

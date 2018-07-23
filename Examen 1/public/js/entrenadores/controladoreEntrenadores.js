@@ -105,13 +105,21 @@ function listarEntrenadores(pFiltro){
 
             let btnCatch = document.createElement('a');
             btnCatch.href = 'cath.html';
-            btnCatch.addEventListener('click', ( localStorage.setItem('idEntrenador', sListaEntrenadores[i]['_id']), localStorage.setItem('entrenadorActivo',          sListaEntrenadores[i]['nombreEntrenador'])) );
+            btnCatch.addEventListener('click', function(){
+                guardarDatosEntrenador(sListaEntrenadores[i]['_id'], sListaEntrenadores[i]['nombreEntrenador'])
+            });
             btnCatch.classList.add('fas');
             btnCatch.classList.add('fa-link');
             celdaCatch.appendChild(btnCatch);
         }
     }
 };
+
+function guardarDatosEntrenador (idEntrenador, nombreEntrenador){
+    localStorage.setItem('idEntrenador', idEntrenador);
+    localStorage.setItem('nombreEntrenador', nombreEntrenador);
+    console.log(localStorage.getItem('idEntrenador'));
+}
 
 function validarRegistro(){
     let bError = false;

@@ -4,15 +4,74 @@
     <meta charset="UTF-8">
     <title>Pokémon</title>
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/landingPage.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
 </head>
 <header>
 
 </header>
 <body>
     <main>
-        <img src="img/logo-pokemon-79x45.png" alt="logo pokemon">
-        <a href="pokedex.html">Ir</a>
+        <div class="grid">
+            <div class="titulo">
+                <h1>PLATAFORMA POKÉMON</h1>
+            </div>
+            <div class="nav">
+                <a href="#sctDescripcion">DESCRIPCIÓN</a>
+                <a href="#sctFuncionalidades">FUNCIONALIDADES</a>
+                <a href="#sctGaleria">GALERÍA</a>
+            </div>
+            <div class="imagen">
+
+            </div>
+
+            <div id="sctDescripcion" class="descripcion">
+                <h1>Sobre CENFOTEC</h1>
+                <p>La Universidad Cenfotec es una institución de educación superior privada con autonomía académica, administrativa y financiera, que tiene como fin primordial el diseño curricular y ejecución de programas para la formación y actualización de profesionales, así como la realización de programas de investigación en el campo de las tecnologías digitales.*</p>
+                <div class="container float_left" id="mision">
+                    <h2>Misión</h2>
+                    <p>Formar personas con una educación rigurosa y ética en tecnología como herramienta para descubrir su propio potencial, autodeterminar su destino y generar conocimiento útil para impactar positivamente la calidad de vida y competitividad en la sociedad.*</p>
+                </div>
+                <div class="container float_left" id="vision">
+                    <h2>Visión</h2>
+                    <p>Ser reconocida internacionalmente entre las mejores instituciones de educación superior en tecnología, como referente de excelencia en lo académico y en lo ético.*</p>
+                </div>
+                <!-- <button class="button" style="vertical-align:middle"><span>Sitio</span></button> -->
+                <a href="https://www.ucenfotec.ac.cr/historia-mision-y-vision" target="blank" class="button"><span>Sitio</span></a>
+                <h3>*Información tomada de www.ucenfotec.ac.cr/historia-mision-y-vision.</h3>
+            </div>
+
+            <div id="sctFuncionalidades" class="funciones">
+                <h3>FUNCIONALIDADES</h3>
+                <p>Si ya tienes una cuenta, haz click en el botón de abajo para ingresar a la aplicación.</p>
+                <!-- <button class="button" style="vertical-align:middle"><span>Login</span></button> -->
+                <a href="pokedex.html" class="button"><span>Login</span></a>
+            </div>
+
+            <div id="sctGaleria" class="galeria">
+                <h3>GALERÍA</h3>
+                <div class="gridGaleria">
+                    <div class="card">
+                        <img src="" alt="pokédex">
+                    </div>
+                    <div class="card">
+                        <img src="" alt="registroPokemon">
+                    </div>
+                    <div class="card">
+                        <img src="" alt="entrenadores">
+                    </div>
+                    <div class="card">
+                        <!-- <img src="img/catch'em.PNG" alt="catch'em"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+    <footer>
+        <p>© 2018 Plataforma Pokémon. All rights reserved | Design by Daniel José Herrera Peraza</p>
+        <a href="pokedex.html" class="fas fa-external-link-alt"></a>
+    </footer>
 
     <script src="js/jquery-3.3.1.js"></script>
     <!-- Inicio: Scripts de cloudinary -->

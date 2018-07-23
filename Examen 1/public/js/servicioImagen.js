@@ -1,4 +1,5 @@
 let imagenUrl = '';
+let gifUrl = '';
 
 $(function() {
     // Configure Cloudinary
@@ -23,6 +24,33 @@ $(function() {
             console.log(imagenUrl);
             document.querySelector('#txtImagen').src = imagenUrl;
             return imagenUrl;
+        });
+    });
+})
+
+$(function() {
+    // Configure Cloudinary
+    // with credentials available on
+    // your Cloudinary account dashboard
+    $.cloudinary.config({ cloud_name: 'dherrerap', api_key: '472479893839219'});
+
+    // Upload button
+    let uploadButton = $('#btnSeleccionarGif');
+
+    // Upload button event
+    uploadButton.on('click', function(e){
+        // Initiate upload
+        cloudinary.openUploadWidget({ cloud_name: 'dherrerap', upload_preset: 'pokemon', tags: ['pokemon']},
+        function(error, result) {
+            if(error) console.log(error);
+            // If NO error, log image data to console
+            let id = result[0].public_id;
+             console.log(id);
+            
+            gifUrl = processImage(id);
+            console.log(gifUrl);
+            document.querySelector('#txtGif').src = gifUrl;
+            return gifUrl;
         });
     });
 })

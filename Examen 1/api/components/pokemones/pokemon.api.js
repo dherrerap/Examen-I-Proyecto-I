@@ -7,7 +7,8 @@ module.exports.registrar = function(req, res) {
         nombrePokemon: req.body.nombrePokemon,
         atributoPrincipal: req.body.atributoPrincipal,
         atributoSecundario: req.body.atributoSecundario,
-        foto: req.body.foto
+        foto: req.body.foto,
+        gif: req.body.gif
     });
 
     nuevoPokemon.save(function(error){
