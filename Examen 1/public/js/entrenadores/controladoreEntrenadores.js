@@ -96,6 +96,8 @@ function listarEntrenadores(pFiltro){
                 let imagen = document.createElement('img');
                 imagen.src = sListaEntrenadores[i]['foto'];
                 imagen.classList.add('imageSettings');
+                imagen.classList.add('imagenPeque');
+                celdaFoto.appendChild(imagen);
             }
 
             celdaNumero.innerHTML = sListaEntrenadores[i]['numeroEntrenador'];
